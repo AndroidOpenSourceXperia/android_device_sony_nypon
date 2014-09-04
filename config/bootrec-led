@@ -6,7 +6,7 @@ busybox echo '0' > /sys/class/leds/so34-led1/brightness
 busybox echo '0' > /sys/class/leds/so34-led2/brightness
 
 # In animaton
-for i in $(seq 0 255)
+for i in $(/sbin/busybox seq 0 255)
 do
     busybox echo $i > /sys/class/leds/so34-led0/brightness
     busybox echo $i > /sys/class/leds/so34-led1/brightness
@@ -17,7 +17,7 @@ done
 busybox echo '50' > /sys/class/timed_output/vibrator/enable
 
 # Out animaton
-for i in $(seq 0 255)
+for i in $(/sbin/busybox seq 0 255)
 do
     j=$((255 - $i))
     
